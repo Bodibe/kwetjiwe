@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { ArrowRight, BarChart3, Briefcase, TrendingUp, Shield, Users, Target } from "lucide-react"
+import { ArrowRight, BarChart3, Briefcase, TrendingUp, Shield, Users, Target, Play } from "lucide-react"
 import Image from "next/image"
 import { HeroSlider } from "@/components/hero-slider"
+import { VideoModal } from "@/components/video-modal"
 
 export default function Home() {
   return (
@@ -81,6 +82,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <VideoModal videoId="-VHvhtx2djw" />
               <Image
                 src="/modern-office-architecture-abstract.jpg"
                 alt="Office Architecture"
