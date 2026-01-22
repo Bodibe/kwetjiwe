@@ -22,8 +22,9 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-sm border-b border-border shadow-sm font-sans">
-      <div className="container mx-auto px-6 h-40 flex items-center justify-between">
+    // Make header relatively positioned instead of fixed/sticky
+    <header className="relative bg-white border-b border-border shadow-sm font-sans">
+      <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         <div className="hidden lg:grid grid-cols-[0.8fr_auto_0.8fr] items-center w-full">
           <div className="flex items-center justify-end gap-6">
             {leftNavItems.map((item) => (
@@ -34,7 +35,7 @@ export function Navbar() {
                   "px-7 py-3 text-lg font-sans font-bold uppercase tracking-wide rounded-lg transition-all",
                   pathname === item.href
                     ? "text-accent bg-accent/10"
-                    : "text-foreground hover:text-accent hover:bg-secondary",
+                    : "text-foreground hover:text-accent hover:bg-secondary"
                 )}
               >
                 {item.name}
@@ -61,7 +62,7 @@ export function Navbar() {
                   "px-7 py-3 text-lg font-sans font-bold uppercase tracking-wide rounded-lg transition-all",
                   pathname === item.href
                     ? "text-accent bg-accent/10"
-                    : "text-foreground hover:text-accent hover:bg-secondary",
+                    : "text-foreground hover:text-accent hover:bg-secondary"
                 )}
               >
                 {item.name}
@@ -92,7 +93,7 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden absolute top-40 left-0 right-0 bg-white border-b border-border shadow-lg">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-border shadow-lg">
           <div className="container mx-auto p-6 flex flex-col gap-2">
             {[...leftNavItems, ...rightNavItems].map((item) => (
               <Link
@@ -103,7 +104,7 @@ export function Navbar() {
                   "px-4 py-3 text-base font-sans font-semibold uppercase tracking-wide rounded-lg transition-all",
                   pathname === item.href
                     ? "text-accent bg-accent/10"
-                    : "text-foreground hover:text-accent hover:bg-secondary",
+                    : "text-foreground hover:text-accent hover:bg-secondary"
                 )}
               >
                 {item.name}
@@ -112,6 +113,6 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }
